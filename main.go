@@ -2,6 +2,7 @@ package main
 
 import (
 	helloworld "pumkko/learnFlamingo/src/helloWorld"
+	solidfront "pumkko/learnFlamingo/src/solidFront"
 
 	"flamingo.me/dingo"
 	"flamingo.me/flamingo/v3"
@@ -20,5 +21,6 @@ func main() {
 		new(requestlogger.Module),
 		new(gotemplate.Module),
 		new(helloworld.Module),
+		new(solidfront.Module),
 	})
 }

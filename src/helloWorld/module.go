@@ -26,10 +26,4 @@ func (r *routes) Inject(controller *interfaces.HelloController) *routes {
 func (r *routes) Routes(registry *web.RouterRegistry) {
 	registry.MustRoute("/api/greet/:nickname", "api.greet")
 	registry.HandleGet("api.greet", r.helloController.ApiGreet)
-
-	registry.MustRoute("/", "index")
-	registry.HandleGet("index", r.helloController.Index)
-
-	registry.MustRoute("/*name", `flamingo.static.file(name, dir?="frontend/dist")`)
-
 }

@@ -28,7 +28,3 @@ func (controller *HelloController) ApiGreet(_ context.Context, r *web.Request) w
 
 	return controller.responder.Data(nicknameBody)
 }
-
-func (controller *HelloController) Index(_ context.Context, r *web.Request) web.Result {
-	return controller.responder.Render("index", nil)
-}
