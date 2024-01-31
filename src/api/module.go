@@ -1,7 +1,7 @@
-package helloworld
+package api
 
 import (
-	"pumkko/learnFlamingo/src/helloWorld/interfaces"
+	"pumkko/learnFlamingo/src/api/interfaces"
 
 	"flamingo.me/dingo"
 	"flamingo.me/flamingo/v3/framework/web"

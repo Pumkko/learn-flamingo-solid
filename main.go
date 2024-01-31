@@ -1,7 +1,7 @@
 package main
 
 import (
-	helloworld "pumkko/learnFlamingo/src/helloWorld"
+	helloworld "pumkko/learnFlamingo/src/api"
 	solidfront "pumkko/learnFlamingo/src/solidFront"
 
 	"flamingo.me/dingo"
