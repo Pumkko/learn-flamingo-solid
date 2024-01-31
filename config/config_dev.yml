@@ -1,0 +1,11 @@
+flamingo.debug.mode: true
+core:
+  zap:
+    loglevel: Debug
+    colored: true
+    json: false
+
+gotemplates:
+  engine:
+    templates:
+      basepath: "frontend/dist" # template directory

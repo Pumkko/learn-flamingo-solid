@@ -1,0 +1,5 @@
+flamingo.debug.mode: false
+core:
+  zap:
+    loglevel: Warn
+    json: true
