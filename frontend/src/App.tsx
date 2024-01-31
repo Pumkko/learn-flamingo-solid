@@ -1,10 +1,21 @@
-import { createSignal } from 'solid-js'
+import { Match, Switch, createSignal } from 'solid-js'
 import solidLogo from './assets/solid.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { createQuery } from '@tanstack/solid-query'
+
+function fetchGreeting() {
+  return fetch("/api/greet/pikachu").then(f => f.json())
+}
 
 function App() {
   const [count, setCount] = createSignal(0)
+
+
+  const query = createQuery(() => ({
+    queryKey: ['greeting'],
+    queryFn: fetchGreeting,
+  }))
 
   return (
     <>
@@ -17,6 +28,19 @@ function App() {
         </a>
       </div>
       <h1>Vite + Solid</h1>
+      <div>
+        <Switch>
+          <Match when={query.isPending}>
+            <p>Loading...</p>
+          </Match>
+          <Match when={query.isError}>
+            <p>Error: {query.error?.message}</p>
+          </Match>
+          <Match when={query.isSuccess}>
+            <p>Hello {query.data.Nickname}</p>
+          </Match>
+        </Switch>
+      </div>
       <div class="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count()}
