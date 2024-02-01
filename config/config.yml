@@ -3,7 +3,7 @@ core:
   zap:
     loglevel: Debug
     json: true
-  gotemplate:
-    engine:
-      templates:
-        basepath: "./frontend/dist" # template directory
+gotemplates:
+  engine:
+    templates:
+      basepath: "frontend/dist", # template directory
