@@ -18,12 +18,12 @@ COPY --from=builder /usr/share/zoneinfo /usr/share/zoneinfo
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # add artifacts
-ADD config/config.yml /usr/src/config/config.yml
+ADD config/config.yml /config/config.yml
 
 # add binary
-COPY --from=builder /app/klanikApp /usr/src/klanikApp
-COPY --from=nodebuild /usr/src/app/dist /usr/src/frontend/dist
+COPY --from=builder /app/klanikApp /klanikApp
+COPY --from=nodebuild /usr/src/app/dist /frontend/dist
 
 
-ENTRYPOINT ["/usr/src/klanikApp"]
+ENTRYPOINT ["/klanikApp"]
 CMD ["serve", "-a", ":8080"]
