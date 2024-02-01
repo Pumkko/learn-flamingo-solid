@@ -7,4 +7,4 @@ core:
   gotemplate:
     engine:
       templates:
-        basepath: "frontend/dist" # template directory
+        basepath: "./frontend/dist" # template directory

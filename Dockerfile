@@ -1,4 +1,8 @@
 # Example Dockerfile for Flamingo/Go based Projects
+FROM node:20-alpine as nodebuild
+WORKDIR /usr/src/app
+COPY ./frontend /usr/src/app
+RUN npm ci && npm run build
 
 # Builder
 FROM golang:alpine AS builder
@@ -14,10 +18,12 @@ COPY --from=builder /usr/share/zoneinfo /usr/share/zoneinfo
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # add artifacts
-#ADD config /config
+ADD config/config.yml /usr/src/config/config.yml
 
 # add binary
 COPY --from=builder /app/klanikApp /usr/src/klanikApp
+COPY --from=nodebuild /usr/src/app/dist /usr/src/frontend/dist
+
 
 ENTRYPOINT ["/usr/src/klanikApp"]
-CMD ["serve"]
+CMD ["serve", "-a", ":8080"]

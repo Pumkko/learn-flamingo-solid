@@ -1,9 +1,9 @@
 flamingo.debug.mode: false
 core:
   zap:
-    loglevel: Warn
+    loglevel: Debug
     json: true
   gotemplate:
     engine:
       templates:
-        basepath: "dist" # template directory
+        basepath: "./frontend/dist" # template directory
