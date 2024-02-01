@@ -3,8 +3,7 @@ core:
   zap:
     loglevel: Warn
     json: true
-    
-gotemplates:
-  engine:
-    templates:
-      basepath: "frontend/dist" # template directory
+  gotemplate:
+    engine:
+      templates:
+        basepath: "dist" # template directory
